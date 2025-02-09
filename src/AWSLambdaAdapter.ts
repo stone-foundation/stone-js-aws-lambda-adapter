@@ -1,12 +1,27 @@
 import { RawResponseWrapper } from './RawResponseWrapper'
 import { AwsLambdaAdapterError } from './errors/AwsLambdaAdapterError'
-import { AwsLambdaContext, AwsLambdaEvent, AwsLambdaEventHandlerFunction, RawResponse, AwsLambdaAdapterContext } from './declarations'
-import { Adapter, AdapterEventBuilder, AdapterOptions, IncomingEvent, IncomingEventOptions, LifecycleEventHandler, OutgoingResponse, RawResponseOptions } from '@stone-js/core'
+import {
+  RawResponse,
+  AwsLambdaEvent,
+  AwsLambdaContext,
+  AwsLambdaAdapterContext,
+  AwsLambdaEventHandlerFunction
+} from './declarations'
+import {
+  Adapter,
+  IncomingEvent,
+  AdapterOptions,
+  OutgoingResponse,
+  RawResponseOptions,
+  AdapterEventBuilder,
+  IncomingEventOptions,
+  LifecycleAdapterEventHandler
+} from '@stone-js/core'
 
 /**
  * AWS Lambda Adapter for Stone.js.
  *
- * The `AWSLambdaAdapter` provides seamless integration between Stone.js applications
+ * The `AwsLambdaAdapter` provides seamless integration between Stone.js applications
  * and the AWS Lambda environment. It processes incoming events from AWS Lambda,
  * transforms them into `IncomingEvent` instances, and returns a `RawResponse`.
  *
@@ -25,9 +40,9 @@ import { Adapter, AdapterEventBuilder, AdapterOptions, IncomingEvent, IncomingEv
  *
  * @example
  * ```typescript
- * import { AWSLambdaAdapter } from '@stone-js/aws-lambda-adapter';
+ * import { AwsLambdaAdapter } from '@stone-js/aws-lambda-adapter';
  *
- * const adapter = AWSLambdaAdapter.create({...});
+ * const adapter = AwsLambdaAdapter.create({...});
  *
  * const handler = await adapter.run();
  *
@@ -37,7 +52,7 @@ import { Adapter, AdapterEventBuilder, AdapterOptions, IncomingEvent, IncomingEv
  * @see {@link https://stone-js.com/docs Stone.js Documentation}
  * @see {@link https://docs.aws.amazon.com/lambda/ AWS Lambda Documentation}
  */
-export class AWSLambdaAdapter extends Adapter<
+export class AwsLambdaAdapter extends Adapter<
 AwsLambdaEvent,
 RawResponse,
 AwsLambdaContext,
@@ -47,7 +62,7 @@ OutgoingResponse,
 AwsLambdaAdapterContext
 > {
   /**
-   * Creates an instance of the `AWSLambdaAdapter`.
+   * Creates an instance of the `AwsLambdaAdapter`.
    *
    * This factory method allows developers to instantiate the adapter with
    * the necessary configuration options, ensuring it is correctly set up for
@@ -55,9 +70,9 @@ AwsLambdaAdapterContext
    *
    * @param options - The configuration options for the adapter, including
    *                  handler resolver, error handling, and other settings.
-   * @returns A fully initialized `AWSLambdaAdapter` instance.
+   * @returns A fully initialized `AwsLambdaAdapter` instance.
    */
-  static create (options: AdapterOptions<IncomingEvent, OutgoingResponse>): AWSLambdaAdapter {
+  static create (options: AdapterOptions<IncomingEvent, OutgoingResponse>): AwsLambdaAdapter {
     return new this(options)
   }
 
@@ -93,7 +108,7 @@ AwsLambdaAdapterContext
   protected async onInit (): Promise<void> {
     if (typeof window === 'object') {
       throw new AwsLambdaAdapterError(
-        'This `AWSLambdaAdapter` must be used only in AWS Lambda context.'
+        'This `AwsLambdaAdapter` must be used only in AWS Lambda context.'
       )
     }
 
@@ -111,7 +126,7 @@ AwsLambdaAdapterContext
    * @returns A promise resolving to the processed `RawResponse`.
    */
   protected async eventListener (rawEvent: AwsLambdaEvent, executionContext: AwsLambdaContext): Promise<RawResponse> {
-    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleEventHandler<IncomingEvent, OutgoingResponse>
+    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
 
     await this.onPrepare(eventHandler)
 

@@ -6,7 +6,7 @@
 
 # Class: AwsLambdaErrorHandler
 
-Defined in: src/AwsLambdaErrorHandler.ts:15
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:14](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L14)
 
 Class representing an AwsLambdaErrorHandler.
 
@@ -20,7 +20,7 @@ Class representing an AwsLambdaErrorHandler.
 
 > **new AwsLambdaErrorHandler**(`options`): [`AwsLambdaErrorHandler`](AwsLambdaErrorHandler.md)
 
-Defined in: src/AwsLambdaErrorHandler.ts:23
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:22](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L22)
 
 Create an AwsLambdaErrorHandler.
 
@@ -42,7 +42,7 @@ AwsLambdaErrorHandler options.
 
 > **handle**(`error`, `context`): `Promise`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
 
-Defined in: src/AwsLambdaErrorHandler.ts:38
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:37](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L37)
 
 Handle an error.
 

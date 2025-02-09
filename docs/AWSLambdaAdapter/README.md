@@ -2,10 +2,10 @@
 
 ***
 
-[AWS Lambda Adapter Documentation](../modules.md) / AWSLambdaAdapter
+[AWS Lambda Adapter Documentation](../modules.md) / AwsLambdaAdapter
 
-# AWSLambdaAdapter
+# AwsLambdaAdapter
 
 ## Classes
 
-- [AWSLambdaAdapter](classes/AWSLambdaAdapter.md)
+- [AwsLambdaAdapter](classes/AwsLambdaAdapter.md)

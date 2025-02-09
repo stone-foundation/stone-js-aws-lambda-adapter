@@ -8,8 +8,8 @@
 
 ## Interfaces
 
+- [AwsLambdaAdapterAdapterConfig](interfaces/AwsLambdaAdapterAdapterConfig.md)
 - [AwsLambdaAdapterBlueprint](interfaces/AwsLambdaAdapterBlueprint.md)
-- [AwsLambdaAdapterConfig](interfaces/AwsLambdaAdapterConfig.md)
 
 ## Variables
 

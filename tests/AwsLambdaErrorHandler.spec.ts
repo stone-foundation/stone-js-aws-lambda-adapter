@@ -1,4 +1,3 @@
-import { HTTP_INTERNAL_SERVER_ERROR } from '@stone-js/http-core'
 import { AwsLambdaErrorHandler } from '../src/AwsLambdaErrorHandler'
 import { IntegrationError, AdapterErrorContext, ILogger } from '@stone-js/core'
 
@@ -34,10 +33,7 @@ describe('AwsLambdaErrorHandler', () => {
 
     const response = await handler.handle(error, mockContext)
 
-    expect(mockContext.rawResponseBuilder.add).toHaveBeenCalledWith(
-      'statusCode',
-      HTTP_INTERNAL_SERVER_ERROR
-    )
+    expect(mockContext.rawResponseBuilder.add).toHaveBeenCalledWith('statusCode', 500)
     expect(mockLogger.error).toHaveBeenCalledWith('Something went wrong', { error })
     expect(response).toBe('response')
   })

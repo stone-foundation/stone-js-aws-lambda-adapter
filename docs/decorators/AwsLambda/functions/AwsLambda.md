@@ -6,9 +6,9 @@
 
 # Function: AwsLambda()
 
-> **AwsLambda**\<`T`\>(`options`): (`target`, `context`) => `void`
+> **AwsLambda**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: src/decorators/AwsLambda.ts:35
+Defined in: [aws-lambda-adapter/src/decorators/AwsLambda.ts:35](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/decorators/AwsLambda.ts#L35)
 
 A Stone.js decorator that integrates the AWS Lambda Adapter with a class.
 
@@ -32,23 +32,9 @@ Optional configuration to customize the AWS Lambda Adapter.
 
 ## Returns
 
-`Function`
+`ClassDecorator`
 
 A class decorator that applies the AWS Lambda adapter configuration.
-
-### Parameters
-
-#### target
-
-`T`
-
-#### context
-
-`ClassDecoratorContext`\<`T`\>
-
-### Returns
-
-`void`
 
 ## Example
 

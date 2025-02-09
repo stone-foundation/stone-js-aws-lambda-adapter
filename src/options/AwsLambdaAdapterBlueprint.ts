@@ -2,6 +2,8 @@ import { AWS_LAMBDA_PLATFORM } from '../constants'
 import { awsLambdaAdapterResolver } from '../resolvers'
 import { AdapterConfig, StoneBlueprint } from '@stone-js/core'
 import { AwsLambdaErrorHandler } from '../AwsLambdaErrorHandler'
+import { metaAdapterConfigMiddleware } from '../middleware/configMiddleware'
+import { MetaIncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
 
 /**
  * Configuration interface for the AWS Lambda Adapter.
@@ -10,7 +12,7 @@ import { AwsLambdaErrorHandler } from '../AwsLambdaErrorHandler'
  * customizable options specific to the AWS Lambda platform. This includes
  * alias, resolver, middleware, hooks, and various adapter state flags.
  */
-export interface AwsLambdaAdapterConfig extends AdapterConfig {}
+export interface AwsLambdaAdapterAdapterConfig extends AdapterConfig {}
 
 /**
  * Blueprint interface for the AWS Lambda Adapter.
@@ -32,17 +34,22 @@ export interface AwsLambdaAdapterBlueprint extends StoneBlueprint {}
  */
 export const awsLambdaAdapterBlueprint: AwsLambdaAdapterBlueprint = {
   stone: {
+    builder: {
+      middleware: metaAdapterConfigMiddleware
+    },
     adapters: [
       {
+        hooks: {},
+        current: false,
+        default: false,
         platform: AWS_LAMBDA_PLATFORM,
         resolver: awsLambdaAdapterResolver,
-        middleware: [],
-        hooks: {},
+        middleware: [
+          MetaIncomingEventMiddleware
+        ],
         errorHandlers: {
-          default: AwsLambdaErrorHandler
-        },
-        current: false,
-        default: false
+          default: { module: AwsLambdaErrorHandler, isClass: true }
+        }
       }
     ]
   }

@@ -6,7 +6,7 @@
 
 # Interface: AwsLambdaErrorHandlerOptions
 
-Defined in: src/AwsLambdaErrorHandler.ts:8
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:7](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L7)
 
 AwsLambdaErrorHandler options.
 
@@ -16,4 +16,4 @@ AwsLambdaErrorHandler options.
 
 > **logger**: `ILogger`
 
-Defined in: src/AwsLambdaErrorHandler.ts:9
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:8](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L8)

@@ -1,12 +1,12 @@
 import deepmerge from 'deepmerge'
-import { addBlueprint, ClassType } from '@stone-js/core'
-import { awsLambdaAdapterBlueprint, AwsLambdaAdapterConfig } from '../options/AwsLambdaAdapterBlueprint'
+import { addBlueprint, classDecoratorLegacyWrapper, ClassType } from '@stone-js/core'
+import { awsLambdaAdapterBlueprint, AwsLambdaAdapterAdapterConfig } from '../options/AwsLambdaAdapterBlueprint'
 
 /**
  * Configuration options for the `AwsLambda` decorator.
  * These options extend the default AWS Lambda adapter configuration.
  */
-export interface AwsLambdaOptions extends Partial<AwsLambdaAdapterConfig> {}
+export interface AwsLambdaOptions extends Partial<AwsLambdaAdapterAdapterConfig> {}
 
 /**
  * A Stone.js decorator that integrates the AWS Lambda Adapter with a class.
@@ -32,10 +32,8 @@ export interface AwsLambdaOptions extends Partial<AwsLambdaAdapterConfig> {}
  * }
  * ```
  */
-export const AwsLambda = <T extends ClassType = ClassType>(
-  options: AwsLambdaOptions = {}
-): ((target: T, context: ClassDecoratorContext<T>) => void) => {
-  return (target: T, context: ClassDecoratorContext<T>) => {
+export const AwsLambda = <T extends ClassType = ClassType>(options: AwsLambdaOptions = {}): ClassDecorator => {
+  return classDecoratorLegacyWrapper<T>((target: T, context: ClassDecoratorContext<T>): undefined => {
     if (awsLambdaAdapterBlueprint.stone?.adapters?.[0] !== undefined) {
       // Merge provided options with the default AWS Lambda adapter blueprint.
       awsLambdaAdapterBlueprint.stone.adapters[0] = deepmerge(awsLambdaAdapterBlueprint.stone.adapters[0], options)
@@ -43,5 +41,5 @@ export const AwsLambda = <T extends ClassType = ClassType>(
 
     // Add the modified blueprint to the target class.
     addBlueprint(target, context, awsLambdaAdapterBlueprint)
-  }
+  })
 }

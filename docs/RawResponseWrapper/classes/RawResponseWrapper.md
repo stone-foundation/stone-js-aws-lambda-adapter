@@ -6,7 +6,7 @@
 
 # Class: RawResponseWrapper
 
-Defined in: [src/RawResponseWrapper.ts:11](https://github.com/stonemjs/aws-lambda-adapter/blob/9de4b38bb7a5afd4d5599dae1399969698a2422d/src/RawResponseWrapper.ts#L11)
+Defined in: [aws-lambda-adapter/src/RawResponseWrapper.ts:11](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/RawResponseWrapper.ts#L11)
 
 Wrapper for generic raw responses.
 
@@ -24,7 +24,7 @@ It implements the `IRawResponseWrapper` interface, ensuring compatibility with t
 
 > **respond**(): [`RawResponse`](../../declarations/type-aliases/RawResponse.md)
 
-Defined in: [src/RawResponseWrapper.ts:62](https://github.com/stonemjs/aws-lambda-adapter/blob/9de4b38bb7a5afd4d5599dae1399969698a2422d/src/RawResponseWrapper.ts#L62)
+Defined in: [aws-lambda-adapter/src/RawResponseWrapper.ts:62](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/RawResponseWrapper.ts#L62)
 
 Constructs and returns the raw response.
 
@@ -56,7 +56,7 @@ console.log(response); // { body: 'Hello, world!' }
 
 > `static` **create**(`options`): [`RawResponseWrapper`](RawResponseWrapper.md)
 
-Defined in: [src/RawResponseWrapper.ts:32](https://github.com/stonemjs/aws-lambda-adapter/blob/9de4b38bb7a5afd4d5599dae1399969698a2422d/src/RawResponseWrapper.ts#L32)
+Defined in: [aws-lambda-adapter/src/RawResponseWrapper.ts:32](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/RawResponseWrapper.ts#L32)
 
 Factory method to create an instance of `RawResponseWrapper`.
 

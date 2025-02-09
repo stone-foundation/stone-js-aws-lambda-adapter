@@ -1,4 +1,3 @@
-import { HTTP_INTERNAL_SERVER_ERROR } from '@stone-js/http-core'
 import { AwsLambdaContext, AwsLambdaEvent, RawResponse } from './declarations'
 import { IntegrationError, AdapterErrorContext, IAdapterErrorHandler, ILogger } from '@stone-js/core'
 
@@ -38,7 +37,7 @@ export class AwsLambdaErrorHandler implements IAdapterErrorHandler<AwsLambdaEven
   public async handle (error: Error, context: AdapterErrorContext<AwsLambdaEvent, RawResponse, AwsLambdaContext>): Promise<RawResponse> {
     context
       .rawResponseBuilder
-      .add('statusCode', HTTP_INTERNAL_SERVER_ERROR)
+      .add('statusCode', 500)
 
     this.logger.error(error.message, { error })
 

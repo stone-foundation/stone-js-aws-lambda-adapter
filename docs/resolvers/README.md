@@ -9,4 +9,3 @@
 ## Functions
 
 - [awsLambdaAdapterResolver](functions/awsLambdaAdapterResolver.md)
-- [awsLambdaHttpAdapterResolver](functions/awsLambdaHttpAdapterResolver.md)
