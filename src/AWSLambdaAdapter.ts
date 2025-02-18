@@ -88,7 +88,7 @@ AwsLambdaAdapterContext
    * @throws {AwsLambdaAdapterError} If used outside the AWS Lambda environment.
    */
   public async run<ExecutionResultType = AwsLambdaEventHandlerFunction>(): Promise<ExecutionResultType> {
-    await this.onInit()
+    await this.onStart()
 
     const handler = async (rawEvent: AwsLambdaEvent, executionContext: AwsLambdaContext): Promise<RawResponse> => {
       return await this.eventListener(rawEvent, executionContext)
@@ -105,14 +105,14 @@ AwsLambdaAdapterContext
    *
    * @throws {AwsLambdaAdapterError} If executed outside an AWS Lambda context (e.g., browser).
    */
-  protected async onInit (): Promise<void> {
+  protected async onStart (): Promise<void> {
     if (typeof window === 'object') {
       throw new AwsLambdaAdapterError(
         'This `AwsLambdaAdapter` must be used only in AWS Lambda context.'
       )
     }
 
-    await super.onInit()
+    await super.onStart()
   }
 
   /**
