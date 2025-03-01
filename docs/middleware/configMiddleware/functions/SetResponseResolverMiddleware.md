@@ -8,7 +8,7 @@
 
 > **SetResponseResolverMiddleware**(`context`, `next`): `Promise`\<`IBlueprint`\>
 
-Defined in: aws-lambda-adapter/src/middleware/configMiddleware.ts:17
+Defined in: [aws-lambda-adapter/src/middleware/configMiddleware.ts:17](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/middleware/configMiddleware.ts#L17)
 
 Middleware to dynamically set response resolver for adapter.
 
@@ -16,13 +16,13 @@ Middleware to dynamically set response resolver for adapter.
 
 ### context
 
-`ConfigContext`\<`IBlueprint`, `ClassType`\>
+`BlueprintContext`\<`IBlueprint`, `ClassType`\>
 
 The configuration context containing modules and blueprint.
 
 ### next
 
-`NextPipe`\<`ConfigContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>
+`NextPipe`\<`BlueprintContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>
 
 The next pipeline function to continue processing.
 

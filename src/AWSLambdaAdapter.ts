@@ -1,5 +1,3 @@
-import { RawResponseWrapper } from './RawResponseWrapper'
-import { AwsLambdaAdapterError } from './errors/AwsLambdaAdapterError'
 import {
   RawResponse,
   AwsLambdaEvent,
@@ -9,14 +7,15 @@ import {
 } from './declarations'
 import {
   Adapter,
+  IBlueprint,
   IncomingEvent,
-  AdapterOptions,
   OutgoingResponse,
   RawResponseOptions,
   AdapterEventBuilder,
-  IncomingEventOptions,
-  LifecycleAdapterEventHandler
+  IncomingEventOptions
 } from '@stone-js/core'
+import { RawResponseWrapper } from './RawResponseWrapper'
+import { AwsLambdaAdapterError } from './errors/AwsLambdaAdapterError'
 
 /**
  * AWS Lambda Adapter for Stone.js.
@@ -64,16 +63,17 @@ AwsLambdaAdapterContext
   /**
    * Creates an instance of the `AwsLambdaAdapter`.
    *
-   * This factory method allows developers to instantiate the adapter with
-   * the necessary configuration options, ensuring it is correctly set up for
-   * AWS Lambda usage.
+   * @param blueprint - The application blueprint.
+   * @returns A new instance of `AwsLambdaAdapter`.
    *
-   * @param options - The configuration options for the adapter, including
-   *                  handler resolver, error handling, and other settings.
-   * @returns A fully initialized `AwsLambdaAdapter` instance.
+   * @example
+   * ```typescript
+   * const adapter = AwsLambdaAdapter.create(blueprint);
+   * await adapter.run();
+   * ```
    */
-  static create (options: AdapterOptions<IncomingEvent, OutgoingResponse>): AwsLambdaAdapter {
-    return new this(options)
+  static create (blueprint: IBlueprint): AwsLambdaAdapter {
+    return new this(blueprint)
   }
 
   /**
@@ -112,7 +112,7 @@ AwsLambdaAdapterContext
       )
     }
 
-    await super.onStart()
+    await this.executeHooks('onStart')
   }
 
   /**
@@ -126,10 +126,6 @@ AwsLambdaAdapterContext
    * @returns A promise resolving to the processed `RawResponse`.
    */
   protected async eventListener (rawEvent: AwsLambdaEvent, executionContext: AwsLambdaContext): Promise<RawResponse> {
-    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
-
-    await this.onPrepare(eventHandler)
-
     const incomingEventBuilder = AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({
       resolver: (options) => IncomingEvent.create(options)
     })
@@ -140,12 +136,21 @@ AwsLambdaAdapterContext
 
     const rawResponse: RawResponse = {}
 
-    return await this.sendEventThroughDestination(eventHandler, {
+    const context: AwsLambdaAdapterContext = {
       rawEvent,
       rawResponse,
       executionContext,
       rawResponseBuilder,
       incomingEventBuilder
-    })
+    }
+
+    try {
+      const eventHandler = this.resolveEventHandler()
+      await this.executeEventHandlerHooks('onInit', eventHandler)
+      return await this.sendEventThroughDestination(context, eventHandler)
+    } catch (error: any) {
+      const rawResponseBuilder = await this.handleError(error, context)
+      return await this.buildRawResponse({ ...context, rawResponseBuilder })
+    }
   }
 }

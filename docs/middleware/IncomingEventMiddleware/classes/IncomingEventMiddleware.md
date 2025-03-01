@@ -6,7 +6,7 @@
 
 # Class: IncomingEventMiddleware
 
-Defined in: [aws-lambda-adapter/src/middleware/IncomingEventMiddleware.ts:12](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/middleware/IncomingEventMiddleware.ts#L12)
+Defined in: [aws-lambda-adapter/src/middleware/IncomingEventMiddleware.ts:11](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/middleware/IncomingEventMiddleware.ts#L11)
 
 Middleware for handling incoming events and transforming them into Stone.js events.
 
@@ -28,7 +28,7 @@ This class processes incoming events, extracting relevant data and forwards them
 
 > **handle**(`context`, `next`): `Promise`\<[`AwsLambdaAdapterResponseBuilder`](../../../declarations/type-aliases/AwsLambdaAdapterResponseBuilder.md)\>
 
-Defined in: [aws-lambda-adapter/src/middleware/IncomingEventMiddleware.ts:21](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/middleware/IncomingEventMiddleware.ts#L21)
+Defined in: [aws-lambda-adapter/src/middleware/IncomingEventMiddleware.ts:20](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/middleware/IncomingEventMiddleware.ts#L20)
 
 Handles the incoming event, processes it, and invokes the next middleware in the pipeline.
 

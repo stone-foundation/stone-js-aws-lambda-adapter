@@ -6,7 +6,7 @@
 
 # Interface: AwsLambdaAdapterContext
 
-Defined in: [aws-lambda-adapter/src/declarations.ts:43](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/declarations.ts#L43)
+Defined in: [aws-lambda-adapter/src/declarations.ts:43](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/declarations.ts#L43)
 
 Represents the context for the AWS Lambda Adapter.
 
@@ -23,7 +23,7 @@ specific to generic AWS Lambda events.
 
 > `readonly` **executionContext**: [`AwsLambdaContext`](../type-aliases/AwsLambdaContext.md)
 
-Defined in: core/dist/index.d.ts:1596
+Defined in: core/dist/index.d.ts:1636
 
 The executionContext of type ExecutionContextType.
 
@@ -37,7 +37,7 @@ The executionContext of type ExecutionContextType.
 
 > `optional` **incomingEvent**: `IncomingEvent`
 
-Defined in: core/dist/index.d.ts:1600
+Defined in: core/dist/index.d.ts:1640
 
 The incomingEvent associated with the executionContext.
 
@@ -51,7 +51,7 @@ The incomingEvent associated with the executionContext.
 
 > `readonly` **incomingEventBuilder**: `IAdapterEventBuilder`\<`IncomingEventOptions`, `IncomingEvent`\>
 
-Defined in: core/dist/index.d.ts:1608
+Defined in: core/dist/index.d.ts:1648
 
 The incomingEventBuilder.
 
@@ -65,7 +65,7 @@ The incomingEventBuilder.
 
 > `optional` **outgoingResponse**: `OutgoingResponse`
 
-Defined in: core/dist/index.d.ts:1604
+Defined in: core/dist/index.d.ts:1644
 
 The outgoingResponse associated with the executionContext.
 
@@ -79,7 +79,7 @@ The outgoingResponse associated with the executionContext.
 
 > `readonly` **rawEvent**: [`AwsLambdaEvent`](../type-aliases/AwsLambdaEvent.md)
 
-Defined in: core/dist/index.d.ts:1588
+Defined in: core/dist/index.d.ts:1628
 
 The rawEvent of type RawEventType.
 
@@ -93,7 +93,7 @@ The rawEvent of type RawEventType.
 
 > **rawResponse**: [`RawResponse`](../type-aliases/RawResponse.md)
 
-Defined in: [aws-lambda-adapter/src/declarations.ts:54](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/declarations.ts#L54)
+Defined in: [aws-lambda-adapter/src/declarations.ts:54](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/declarations.ts#L54)
 
 The raw response associated with the current context.
 
@@ -107,7 +107,7 @@ The raw response associated with the current context.
 
 > `readonly` **rawResponseBuilder**: `IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<[`RawResponse`](../type-aliases/RawResponse.md)\>\>
 
-Defined in: core/dist/index.d.ts:1612
+Defined in: core/dist/index.d.ts:1652
 
 The rawResponseBuilder.
 

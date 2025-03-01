@@ -6,7 +6,7 @@
 
 # Class: AwsLambdaErrorHandler
 
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:14](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L14)
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:22](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/AwsLambdaErrorHandler.ts#L22)
 
 Class representing an AwsLambdaErrorHandler.
 
@@ -20,7 +20,7 @@ Class representing an AwsLambdaErrorHandler.
 
 > **new AwsLambdaErrorHandler**(`options`): [`AwsLambdaErrorHandler`](AwsLambdaErrorHandler.md)
 
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:22](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L22)
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:30](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/AwsLambdaErrorHandler.ts#L30)
 
 Create an AwsLambdaErrorHandler.
 
@@ -40,9 +40,9 @@ AwsLambdaErrorHandler options.
 
 ### handle()
 
-> **handle**(`error`, `context`): `Promise`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
+> **handle**(`error`, `context`): `AdapterEventBuilderType`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
 
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:37](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/AwsLambdaErrorHandler.ts#L37)
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:41](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/AwsLambdaErrorHandler.ts#L41)
 
 Handle an error.
 
@@ -62,9 +62,9 @@ The context of the adapter.
 
 #### Returns
 
-`Promise`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
+`AdapterEventBuilderType`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
 
-The raw response.
+The raw response builder.
 
 #### Implementation of
 

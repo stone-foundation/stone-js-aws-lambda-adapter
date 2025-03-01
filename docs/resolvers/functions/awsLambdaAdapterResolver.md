@@ -8,7 +8,7 @@
 
 > **awsLambdaAdapterResolver**(`blueprint`): `IAdapter`
 
-Defined in: [aws-lambda-adapter/src/resolvers.ts:12](https://github.com/stonemjs/aws-lambda-adapter/blob/b2e29f567ac56717023f9597000ee3f0d0278093/src/resolvers.ts#L12)
+Defined in: [aws-lambda-adapter/src/resolvers.ts:12](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/resolvers.ts#L12)
 
 Adapter resolver for generic AWS Lambda adapter.
 

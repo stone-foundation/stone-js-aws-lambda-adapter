@@ -6,9 +6,9 @@
 
 # Variable: metaAdapterConfigMiddleware
 
-> `const` **metaAdapterConfigMiddleware**: `MetaPipe`\<`ConfigContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>[]
+> `const` **metaAdapterConfigMiddleware**: `MetaPipe`\<`BlueprintContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>[]
 
-Defined in: aws-lambda-adapter/src/middleware/configMiddleware.ts:34
+Defined in: [aws-lambda-adapter/src/middleware/configMiddleware.ts:34](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/middleware/configMiddleware.ts#L34)
 
 Configuration for adapter processing middleware.
 

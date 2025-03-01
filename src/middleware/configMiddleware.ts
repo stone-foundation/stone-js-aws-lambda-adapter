@@ -1,6 +1,6 @@
 import { AWS_LAMBDA_PLATFORM } from '../constants'
 import { MetaPipe, NextPipe } from '@stone-js/pipeline'
-import { ClassType, ConfigContext, IBlueprint, OutgoingResponse, OutgoingResponseOptions } from '@stone-js/core'
+import { ClassType, BlueprintContext, IBlueprint, OutgoingResponse, OutgoingResponseOptions } from '@stone-js/core'
 
 /**
  * Middleware to dynamically set response resolver for adapter.
@@ -11,12 +11,12 @@ import { ClassType, ConfigContext, IBlueprint, OutgoingResponse, OutgoingRespons
  *
  * @example
  * ```typescript
- * SetResponseResolverMiddleware(context, next)
+ * SetAwsLambdaResponseResolverMiddleware(context, next)
  * ```
  */
-export const SetResponseResolverMiddleware = async (
-  context: ConfigContext<IBlueprint, ClassType>,
-  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+export const SetAwsLambdaResponseResolverMiddleware = async (
+  context: BlueprintContext<IBlueprint, ClassType>,
+  next: NextPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
 ): Promise<IBlueprint> => {
   if (context.blueprint.get<string>('stone.adapter.platform') === AWS_LAMBDA_PLATFORM) {
     context.blueprint.set('stone.kernel.responseResolver', (options: OutgoingResponseOptions) => OutgoingResponse.create(options))
@@ -31,6 +31,6 @@ export const SetResponseResolverMiddleware = async (
  * This array defines a list of middleware pipes, each with a `pipe` function and a `priority`.
  * These pipes are executed in the order of their priority values, with lower values running first.
  */
-export const metaAdapterConfigMiddleware: Array<MetaPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>> = [
-  { module: SetResponseResolverMiddleware, priority: 6 }
+export const metaAdapterConfigMiddleware: Array<MetaPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>> = [
+  { module: SetAwsLambdaResponseResolverMiddleware, priority: 6 }
 ]
