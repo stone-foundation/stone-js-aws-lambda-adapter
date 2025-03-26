@@ -72,7 +72,7 @@ export { handler };
 
 > `protected` **new AwsLambdaAdapter**(`blueprint`): [`AwsLambdaAdapter`](AwsLambdaAdapter.md)
 
-Defined in: core/dist/index.d.ts:2726
+Defined in: core/dist/index.d.ts:2743
 
 Create an Adapter.
 
@@ -98,7 +98,7 @@ The blueprint to create the adapter.
 
 > `protected` `readonly` **blueprint**: `IBlueprint`\<`any`\>
 
-Defined in: core/dist/index.d.ts:2717
+Defined in: core/dist/index.d.ts:2734
 
 #### Inherited from
 
@@ -110,7 +110,7 @@ Defined in: core/dist/index.d.ts:2717
 
 > `protected` `readonly` **hooks**: `AdapterHookType`\<[`AwsLambdaAdapterContext`](../../declarations/interfaces/AwsLambdaAdapterContext.md), [`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
 
-Defined in: core/dist/index.d.ts:2718
+Defined in: core/dist/index.d.ts:2735
 
 #### Inherited from
 
@@ -122,7 +122,7 @@ Defined in: core/dist/index.d.ts:2718
 
 > `protected` `readonly` **middleware**: `AdapterMixedPipeType`\<[`AwsLambdaAdapterContext`](../../declarations/interfaces/AwsLambdaAdapterContext.md), [`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>[]
 
-Defined in: core/dist/index.d.ts:2719
+Defined in: core/dist/index.d.ts:2736
 
 #### Inherited from
 
@@ -134,7 +134,7 @@ Defined in: core/dist/index.d.ts:2719
 
 > `protected` `readonly` **resolvedErrorHandlers**: `Record`\<`string`, `IAdapterErrorHandler`\<[`AwsLambdaEvent`](../../declarations/type-aliases/AwsLambdaEvent.md), [`RawResponse`](../../declarations/type-aliases/RawResponse.md), [`AwsLambdaContext`](../../declarations/type-aliases/AwsLambdaContext.md)\>\>
 
-Defined in: core/dist/index.d.ts:2720
+Defined in: core/dist/index.d.ts:2737
 
 #### Inherited from
 
@@ -146,7 +146,7 @@ Defined in: core/dist/index.d.ts:2720
 
 > `protected` **buildRawResponse**(`context`, `eventHandler`?): `Promise`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
 
-Defined in: core/dist/index.d.ts:2780
+Defined in: core/dist/index.d.ts:2797
 
 Build the raw response.
 
@@ -213,7 +213,7 @@ A promise resolving to the processed `RawResponse`.
 
 > `protected` **executeEventHandlerHooks**(`hook`, `eventHandler`): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2801
+Defined in: core/dist/index.d.ts:2825
 
 Execute the event handler lifecycle hooks.
 
@@ -245,7 +245,7 @@ The event handler to be run.
 
 > `protected` **executeHooks**(`name`, `context`?, `error`?): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2809
+Defined in: core/dist/index.d.ts:2833
 
 Execute adapter lifecycle hooks.
 
@@ -279,35 +279,11 @@ The error to handle.
 
 ***
 
-### getEventHandler()
-
-> `protected` **getEventHandler**(): `AdapterEventHandlerType`\<`IncomingEvent`, `OutgoingResponse`\>
-
-Defined in: core/dist/index.d.ts:2816
-
-Get the event handler for the adapter.
-
-#### Returns
-
-`AdapterEventHandlerType`\<`IncomingEvent`, `OutgoingResponse`\>
-
-The event handler for the adapter.
-
-#### Throws
-
-If the event handler is missing.
-
-#### Inherited from
-
-`Adapter.getEventHandler`
-
-***
-
 ### handleError()
 
 > `protected` **handleError**(`error`, `context`): `Promise`\<`AdapterEventBuilderType`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>\>
 
-Defined in: core/dist/index.d.ts:2772
+Defined in: core/dist/index.d.ts:2789
 
 Handle error.
 
@@ -341,7 +317,7 @@ The raw response.
 
 > `protected` **handleEvent**(`context`, `eventHandler`): `Promise`\<`IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>\>\>
 
-Defined in: core/dist/index.d.ts:2764
+Defined in: core/dist/index.d.ts:2781
 
 Handle the event.
 
@@ -375,7 +351,7 @@ The raw response wrapper.
 
 > `protected` **makePipelineOptions**(): `PipelineOptions`\<[`AwsLambdaAdapterContext`](../../declarations/interfaces/AwsLambdaAdapterContext.md), `AdapterEventBuilderType`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>\>
 
-Defined in: core/dist/index.d.ts:2786
+Defined in: core/dist/index.d.ts:2803
 
 Create pipeline options for the Adapter.
 
@@ -416,7 +392,7 @@ If executed outside an AWS Lambda context (e.g., browser).
 
 > `protected` **resolveErrorHandler**(`error`): `IAdapterErrorHandler`\<[`AwsLambdaEvent`](../../declarations/type-aliases/AwsLambdaEvent.md), [`RawResponse`](../../declarations/type-aliases/RawResponse.md), [`AwsLambdaContext`](../../declarations/type-aliases/AwsLambdaContext.md)\>
 
-Defined in: core/dist/index.d.ts:2794
+Defined in: core/dist/index.d.ts:2818
 
 Get the error handler for the given error.
 
@@ -441,6 +417,30 @@ IntegrationError
 #### Inherited from
 
 `Adapter.resolveErrorHandler`
+
+***
+
+### resolveEventHandler()
+
+> `protected` **resolveEventHandler**(): `AdapterEventHandlerType`\<`IncomingEvent`, `OutgoingResponse`\>
+
+Defined in: core/dist/index.d.ts:2810
+
+Get the event handler for the adapter.
+
+#### Returns
+
+`AdapterEventHandlerType`\<`IncomingEvent`, `OutgoingResponse`\>
+
+The event handler for the adapter.
+
+#### Throws
+
+If the event handler is missing.
+
+#### Inherited from
+
+`Adapter.resolveEventHandler`
 
 ***
 
@@ -482,7 +482,7 @@ If used outside the AWS Lambda environment.
 
 > `protected` **sendEventThroughDestination**(`context`, `eventHandler`): `Promise`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
 
-Defined in: core/dist/index.d.ts:2756
+Defined in: core/dist/index.d.ts:2773
 
 Send the raw event through the destination.
 
@@ -520,7 +520,7 @@ IntegrationError
 
 > `protected` **validateContextAndEventHandler**(`context`, `eventHandler`): `void`
 
-Defined in: core/dist/index.d.ts:2824
+Defined in: core/dist/index.d.ts:2841
 
 Validate the context and event handler.
 

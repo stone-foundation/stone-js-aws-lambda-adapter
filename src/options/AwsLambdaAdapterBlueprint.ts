@@ -1,8 +1,8 @@
 import { AWS_LAMBDA_PLATFORM } from '../constants'
 import { awsLambdaAdapterResolver } from '../resolvers'
 import { AwsLambdaErrorHandler } from '../AwsLambdaErrorHandler'
-import { metaAdapterConfigMiddleware } from '../middleware/configMiddleware'
 import { AwsLambdaContext, AwsLambdaEvent, RawResponse } from '../declarations'
+import { metaAdapterBlueprintMiddleware } from '../middleware/BlueprintMiddleware'
 import { MetaIncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
 import { AdapterConfig, defaultKernelResolver, IncomingEvent, IncomingEventOptions, OutgoingResponse, StoneBlueprint } from '@stone-js/core'
 
@@ -42,8 +42,8 @@ export interface AwsLambdaAdapterBlueprint extends StoneBlueprint {}
  */
 export const awsLambdaAdapterBlueprint: AwsLambdaAdapterBlueprint = {
   stone: {
-    builder: {
-      middleware: metaAdapterConfigMiddleware
+    blueprint: {
+      middleware: metaAdapterBlueprintMiddleware
     },
     adapters: [
       {

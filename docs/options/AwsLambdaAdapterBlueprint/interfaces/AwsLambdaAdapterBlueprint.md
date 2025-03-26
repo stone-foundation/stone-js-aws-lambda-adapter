@@ -6,7 +6,7 @@
 
 # Interface: AwsLambdaAdapterBlueprint
 
-Defined in: [aws-lambda-adapter/src/options/AwsLambdaAdapterBlueprint.ts:32](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/options/AwsLambdaAdapterBlueprint.ts#L32)
+Defined in: [aws-lambda-adapter/src/options/AwsLambdaAdapterBlueprint.ts:32](https://github.com/stonemjs/aws-lambda-adapter/blob/dd32cc4c1c231995d4ac18a5ed4fe2bb473349e7/src/options/AwsLambdaAdapterBlueprint.ts#L32)
 
 Blueprint interface for the AWS Lambda Adapter.
 
@@ -28,7 +28,7 @@ a `stone` object with an array of `AwsLambdaAdapterConfig` items.
 
 > **stone**: `Partial`\<`AppConfig`\>
 
-Defined in: core/dist/index.d.ts:560
+Defined in: core/dist/index.d.ts:609
 
 Application-level settings, including environment, middleware, logging, and service registration.
 

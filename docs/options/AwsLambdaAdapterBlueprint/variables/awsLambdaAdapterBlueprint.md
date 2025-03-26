@@ -8,7 +8,7 @@
 
 > `const` **awsLambdaAdapterBlueprint**: [`AwsLambdaAdapterBlueprint`](../interfaces/AwsLambdaAdapterBlueprint.md)
 
-Defined in: [aws-lambda-adapter/src/options/AwsLambdaAdapterBlueprint.ts:43](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/options/AwsLambdaAdapterBlueprint.ts#L43)
+Defined in: [aws-lambda-adapter/src/options/AwsLambdaAdapterBlueprint.ts:43](https://github.com/stonemjs/aws-lambda-adapter/blob/dd32cc4c1c231995d4ac18a5ed4fe2bb473349e7/src/options/AwsLambdaAdapterBlueprint.ts#L43)
 
 Default blueprint configuration for the AWS Lambda Adapter.
 

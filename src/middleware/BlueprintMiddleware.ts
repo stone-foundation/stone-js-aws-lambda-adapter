@@ -31,6 +31,6 @@ export const SetAwsLambdaResponseResolverMiddleware = async (
  * This array defines a list of middleware pipes, each with a `pipe` function and a `priority`.
  * These pipes are executed in the order of their priority values, with lower values running first.
  */
-export const metaAdapterConfigMiddleware: Array<MetaPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>> = [
+export const metaAdapterBlueprintMiddleware: Array<MetaPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>> = [
   { module: SetAwsLambdaResponseResolverMiddleware, priority: 6 }
 ]

@@ -8,7 +8,7 @@
 
 > **AwsLambda**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [aws-lambda-adapter/src/decorators/AwsLambda.ts:35](https://github.com/stonemjs/aws-lambda-adapter/blob/6762f5f926b4cb9643992a757595270c92f0d9ac/src/decorators/AwsLambda.ts#L35)
+Defined in: [aws-lambda-adapter/src/decorators/AwsLambda.ts:35](https://github.com/stonemjs/aws-lambda-adapter/blob/dd32cc4c1c231995d4ac18a5ed4fe2bb473349e7/src/decorators/AwsLambda.ts#L35)
 
 A Stone.js decorator that integrates the AWS Lambda Adapter with a class.
 

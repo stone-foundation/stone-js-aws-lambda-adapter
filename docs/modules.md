@@ -12,7 +12,7 @@
 - [declarations](declarations/README.md)
 - [decorators/AwsLambda](decorators/AwsLambda/README.md)
 - [errors/AwsLambdaAdapterError](errors/AwsLambdaAdapterError/README.md)
-- [middleware/configMiddleware](middleware/configMiddleware/README.md)
+- [middleware/BlueprintMiddleware](middleware/BlueprintMiddleware/README.md)
 - [middleware/IncomingEventMiddleware](middleware/IncomingEventMiddleware/README.md)
 - [options/AwsLambdaAdapterBlueprint](options/AwsLambdaAdapterBlueprint/README.md)
 - [RawResponseWrapper](RawResponseWrapper/README.md)
