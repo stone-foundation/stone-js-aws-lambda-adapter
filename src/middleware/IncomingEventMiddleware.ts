@@ -1,4 +1,4 @@
-import { NextPipe } from '@stone-js/pipeline'
+import { NextMiddleware } from '@stone-js/core'
 import { AWS_LAMBDA_PLATFORM } from '../constants'
 import { AwsLambdaAdapterError } from '../errors/AwsLambdaAdapterError'
 import { AwsLambdaAdapterContext, AwsLambdaAdapterResponseBuilder } from '../declarations'
@@ -17,7 +17,7 @@ export class IncomingEventMiddleware {
    * @returns A promise that resolves to the processed Response Builder.
    * @throws {AwsLambdaAdapterError} If required components are missing in the context.
    */
-  async handle (context: AwsLambdaAdapterContext, next: NextPipe<AwsLambdaAdapterContext, AwsLambdaAdapterResponseBuilder>): Promise<AwsLambdaAdapterResponseBuilder> {
+  async handle (context: AwsLambdaAdapterContext, next: NextMiddleware<AwsLambdaAdapterContext, AwsLambdaAdapterResponseBuilder>): Promise<AwsLambdaAdapterResponseBuilder> {
     if ((context.rawEvent === undefined) || ((context.incomingEventBuilder?.add) === undefined)) {
       throw new AwsLambdaAdapterError('The context is missing required components.')
     }

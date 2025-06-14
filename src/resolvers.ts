@@ -1,4 +1,4 @@
-import { AwsLambdaAdapter } from './AwsLambdaAdapter'
+import { AwsLambdaAdapter } from './AWSLambdaAdapter'
 import { AdapterResolver, IBlueprint } from '@stone-js/core'
 
 /**

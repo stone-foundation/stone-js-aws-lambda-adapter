@@ -1,12 +1,4 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../README.md)
-
-***
-
-[AWS Lambda Adapter Documentation](../../modules.md) / [declarations](../README.md) / AwsLambdaAdapterContext
-
 # Interface: AwsLambdaAdapterContext
-
-Defined in: [aws-lambda-adapter/src/declarations.ts:43](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/declarations.ts#L43)
 
 Represents the context for the AWS Lambda Adapter.
 
@@ -19,98 +11,16 @@ specific to generic AWS Lambda events.
 
 ## Properties
 
-### executionContext
-
-> `readonly` **executionContext**: [`AwsLambdaContext`](../type-aliases/AwsLambdaContext.md)
-
-Defined in: core/dist/index.d.ts:1754
-
-The executionContext of type ExecutionContextType.
-
-#### Inherited from
-
-`AdapterContext.executionContext`
-
-***
-
-### incomingEvent?
-
-> `optional` **incomingEvent**: `IncomingEvent`
-
-Defined in: core/dist/index.d.ts:1758
-
-The incomingEvent associated with the executionContext.
-
-#### Inherited from
-
-`AdapterContext.incomingEvent`
-
-***
-
-### incomingEventBuilder
-
-> `readonly` **incomingEventBuilder**: `IAdapterEventBuilder`\<`IncomingEventOptions`, `IncomingEvent`\>
-
-Defined in: core/dist/index.d.ts:1766
-
-The incomingEventBuilder.
-
-#### Inherited from
-
-`AdapterContext.incomingEventBuilder`
-
-***
-
-### outgoingResponse?
-
-> `optional` **outgoingResponse**: `OutgoingResponse`
-
-Defined in: core/dist/index.d.ts:1762
-
-The outgoingResponse associated with the executionContext.
-
-#### Inherited from
-
-`AdapterContext.outgoingResponse`
-
-***
-
-### rawEvent
-
-> `readonly` **rawEvent**: [`AwsLambdaEvent`](../type-aliases/AwsLambdaEvent.md)
-
-Defined in: core/dist/index.d.ts:1746
-
-The rawEvent of type RawEventType.
-
-#### Inherited from
-
-`AdapterContext.rawEvent`
-
-***
-
 ### rawResponse
 
-> **rawResponse**: [`RawResponse`](../type-aliases/RawResponse.md)
-
-Defined in: [aws-lambda-adapter/src/declarations.ts:54](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/declarations.ts#L54)
+```ts
+rawResponse: RawResponse;
+```
 
 The raw response associated with the current context.
 
 #### Overrides
 
-`AdapterContext.rawResponse`
-
-***
-
-### rawResponseBuilder
-
-> `readonly` **rawResponseBuilder**: `IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<[`RawResponse`](../type-aliases/RawResponse.md)\>\>
-
-Defined in: core/dist/index.d.ts:1770
-
-The rawResponseBuilder.
-
-#### Inherited from
-
-`AdapterContext.rawResponseBuilder`
+```ts
+AdapterContext.rawResponse
+```

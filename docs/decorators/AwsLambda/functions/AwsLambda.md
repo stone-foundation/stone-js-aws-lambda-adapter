@@ -1,14 +1,8 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../../README.md)
-
-***
-
-[AWS Lambda Adapter Documentation](../../../modules.md) / [decorators/AwsLambda](../README.md) / AwsLambda
-
 # Function: AwsLambda()
 
-> **AwsLambda**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [aws-lambda-adapter/src/decorators/AwsLambda.ts:35](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/decorators/AwsLambda.ts#L35)
+```ts
+function AwsLambda<T>(options): ClassDecorator;
+```
 
 A Stone.js decorator that integrates the AWS Lambda Adapter with a class.
 
@@ -18,7 +12,9 @@ the class is automatically configured with the necessary blueprint for AWS Lambd
 
 ## Type Parameters
 
-• **T** *extends* `ClassType` = `ClassType`
+### T
+
+`T` *extends* `ClassType` = `ClassType`
 
 The type of the class being decorated. Defaults to `ClassType`.
 

@@ -1,12 +1,4 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../README.md)
-
-***
-
-[AWS Lambda Adapter Documentation](../../modules.md) / [AwsLambdaErrorHandler](../README.md) / AwsLambdaErrorHandler
-
 # Class: AwsLambdaErrorHandler
-
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:22](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/AwsLambdaErrorHandler.ts#L22)
 
 Class representing an AwsLambdaErrorHandler.
 
@@ -16,11 +8,11 @@ Class representing an AwsLambdaErrorHandler.
 
 ## Constructors
 
-### new AwsLambdaErrorHandler()
+### Constructor
 
-> **new AwsLambdaErrorHandler**(`options`): [`AwsLambdaErrorHandler`](AwsLambdaErrorHandler.md)
-
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:30](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/AwsLambdaErrorHandler.ts#L30)
+```ts
+new AwsLambdaErrorHandler(options): AwsLambdaErrorHandler;
+```
 
 Create an AwsLambdaErrorHandler.
 
@@ -34,15 +26,15 @@ AwsLambdaErrorHandler options.
 
 #### Returns
 
-[`AwsLambdaErrorHandler`](AwsLambdaErrorHandler.md)
+`AwsLambdaErrorHandler`
 
 ## Methods
 
 ### handle()
 
-> **handle**(`error`, `context`): `AdapterEventBuilderType`\<[`RawResponse`](../../declarations/type-aliases/RawResponse.md)\>
-
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:41](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/AwsLambdaErrorHandler.ts#L41)
+```ts
+handle(error, context): AdapterEventBuilderType<RawResponse>;
+```
 
 Handle an error.
 
@@ -68,4 +60,6 @@ The raw response builder.
 
 #### Implementation of
 
-`IAdapterErrorHandler.handle`
+```ts
+IAdapterErrorHandler.handle
+```

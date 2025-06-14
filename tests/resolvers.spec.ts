@@ -1,5 +1,5 @@
 import { IBlueprint } from '@stone-js/core'
-import { AwsLambdaAdapter } from '../src/AwsLambdaAdapter'
+import { AwsLambdaAdapter } from '../src/AWSLambdaAdapter'
 import { awsLambdaAdapterResolver } from '../src/resolvers'
 
 const mockBlueprint = {

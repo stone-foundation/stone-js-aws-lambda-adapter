@@ -1,16 +1,16 @@
 {
   "name": "@stone-js/aws-lambda-adapter",
   "version": "0.0.2",
-  "description": "Stone.js AWS Lambda Adapters",
+  "description": "General-purpose AWS Lambda adapter for Stone.js, run any app in serverless environments, beyond HTTP. Supports queues, events, schedulers, and background jobs.",
   "author": "Mr. Stone <evensstone@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/stone-js/aws-lambda-adapter.git"
+    "url": "git+ssh://git@github.com/stone-foundation/stone-js-aws-lambda-adapter.git"
   },
-  "homepage": "https://github.com/stone-js/aws-lambda-adapter#readme",
+  "homepage": "https://stonejs.dev",
   "bugs": {
-    "url": "https://github.com/stone-js/aws-lambda-adapter/issues"
+    "url": "https://github.com/stone-foundation/stone-js-aws-lambda-adapter/issues"
   },
   "keywords": [
     "aws",
@@ -39,7 +39,7 @@
     }
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.17.0"
   },
   "scripts": {
     "lint": "ts-standard src",
@@ -56,36 +56,35 @@
     "prepare": "husky"
   },
   "peerDependencies": {
-    "@stone-js/core": "file:/Users/evenspierre/Projects/StoneJS/core",
-    "@stone-js/env": "file:/Users/evenspierre/Projects/StoneJS/env",
-    "@stone-js/pipeline": "file:/Users/evenspierre/Projects/StoneJS/pipeline",
-    "@stone-js/service-container": "file:/Users/evenspierre/Projects/StoneJS/service-container"
+    "@stone-js/core": "^0.1.1",
+    "@stone-js/env": "^0.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@rollup/plugin-commonjs": "^28.0.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-multi-entry": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.1",
-    "@types/node": "^22.9.0",
-    "@vitest/coverage-v8": "^3.1.1",
-    "husky": "^9.1.6",
+    "@types/node": "^24.0.0",
+    "@vitest/coverage-v8": "^3.2.3",
+    "husky": "^9.1.7",
     "rimraf": "^6.0.1",
-    "rollup": "^4.1.5",
-    "rollup-plugin-delete": "^2.1.0",
-    "rollup-plugin-dts": "^6.1.1",
+    "rollup": "^4.43.0",
+    "rollup-plugin-delete": "^3.0.1",
+    "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-node-externals": "^8.0.0",
     "ts-standard": "^12.0.2",
     "tslib": "^2.8.1",
-    "typedoc": "^0.27.6",
-    "typedoc-plugin-markdown": "^4.4.1",
+    "typedoc": "^0.28.5",
+    "typedoc-plugin-markdown": "^4.6.4",
     "typescript": "^5.6.3",
-    "vitest": "^3.1.1"
+    "vitest": "^3.2.3"
   },
   "ts-standard": {
     "globals": [
       "it",
+      "test",
       "expect",
       "describe",
       "beforeEach"

@@ -1,4 +1,4 @@
-import { NextPipe } from '@stone-js/pipeline'
+import { NextMiddleware } from '@stone-js/core'
 import { AwsLambdaAdapterError } from '../../src/errors/AwsLambdaAdapterError'
 import { IncomingEventMiddleware } from '../../src/middleware/IncomingEventMiddleware'
 import { AwsLambdaAdapterContext, AwsLambdaAdapterResponseBuilder } from '../../src/declarations'
@@ -6,7 +6,7 @@ import { AwsLambdaAdapterContext, AwsLambdaAdapterResponseBuilder } from '../../
 describe('IncomingEventMiddleware', () => {
   let middleware: IncomingEventMiddleware
   let mockContext: AwsLambdaAdapterContext
-  let next: NextPipe<AwsLambdaAdapterContext, AwsLambdaAdapterResponseBuilder>
+  let next: NextMiddleware<AwsLambdaAdapterContext, AwsLambdaAdapterResponseBuilder>
 
   beforeEach(() => {
     middleware = new IncomingEventMiddleware()

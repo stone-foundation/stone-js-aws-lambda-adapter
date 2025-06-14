@@ -1,20 +1,16 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../README.md)
-
-***
-
-[AWS Lambda Adapter Documentation](../../modules.md) / [declarations](../README.md) / AwsLambdaEventHandlerFunction
-
 # Type Alias: AwsLambdaEventHandlerFunction()\<RawResponseType\>
 
-> **AwsLambdaEventHandlerFunction**\<`RawResponseType`\>: (`rawEvent`, `context`) => `Promise`\<`RawResponseType`\>
-
-Defined in: [aws-lambda-adapter/src/declarations.ts:27](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/declarations.ts#L27)
+```ts
+type AwsLambdaEventHandlerFunction<RawResponseType> = (rawEvent, context) => Promise<RawResponseType>;
+```
 
 Represents an AWS Lambda event handler function.
 
 ## Type Parameters
 
-• **RawResponseType** = [`RawResponse`](RawResponse.md)
+### RawResponseType
+
+`RawResponseType` = [`RawResponse`](RawResponse.md)
 
 The type of the response returned by the handler.
 
