@@ -1,10 +1,11 @@
+import { getString } from '@stone-js/env'
 import { AWS_LAMBDA_PLATFORM } from '../constants'
 import { awsLambdaAdapterResolver } from '../resolvers'
 import { AwsLambdaErrorHandler } from '../AwsLambdaErrorHandler'
 import { AwsLambdaContext, AwsLambdaEvent, RawResponse } from '../declarations'
 import { metaAdapterBlueprintMiddleware } from '../middleware/BlueprintMiddleware'
 import { MetaIncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
-import { AdapterConfig, defaultKernelResolver, IncomingEvent, IncomingEventOptions, OutgoingResponse, StoneBlueprint } from '@stone-js/core'
+import { AdapterConfig, defaultKernelResolver, IncomingEvent, IncomingEventOptions, isNotEmpty, OutgoingResponse, StoneBlueprint } from '@stone-js/core'
 
 /**
  * Configuration interface for the AWS Lambda Adapter.
@@ -48,7 +49,7 @@ export const awsLambdaAdapterBlueprint: AwsLambdaAdapterBlueprint = {
     adapters: [
       {
         current: false,
-        default: false,
+        variant: 'server',
         platform: AWS_LAMBDA_PLATFORM,
         middleware: [
           MetaIncomingEventMiddleware
@@ -57,7 +58,8 @@ export const awsLambdaAdapterBlueprint: AwsLambdaAdapterBlueprint = {
         eventHandlerResolver: defaultKernelResolver,
         errorHandlers: {
           default: { module: AwsLambdaErrorHandler, isClass: true }
-        }
+        },
+        default: isNotEmpty(getString('AWS_LAMBDA_FUNCTION_NAME', ''))
       }
     ]
   }

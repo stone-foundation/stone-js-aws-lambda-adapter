@@ -1,8 +1,9 @@
 import { AwsLambdaErrorHandler } from '../src/AwsLambdaErrorHandler'
-import { IntegrationError, AdapterErrorContext, ILogger } from '@stone-js/core'
+import { AdapterErrorContext, ILogger, IBlueprint } from '@stone-js/core'
 
 describe('AwsLambdaErrorHandler', () => {
   let mockLogger: ILogger
+  let mockBlueprint: IBlueprint
   let handler: AwsLambdaErrorHandler
   let mockContext: AdapterErrorContext<any, any, any>
 
@@ -11,30 +12,30 @@ describe('AwsLambdaErrorHandler', () => {
       error: vi.fn()
     } as unknown as ILogger
 
+    mockBlueprint = {
+      get: () => () => mockLogger
+    } as unknown as IBlueprint
+
     mockContext = {
       rawEvent: {},
       rawResponseBuilder: {
         add: vi.fn().mockReturnThis(),
         build: vi.fn().mockReturnValue({
-          respond: vi.fn().mockResolvedValue('response')
+          respond: vi.fn().mockReturnValue('response')
         })
       }
     } as unknown as AdapterErrorContext<any, any, any>
 
-    handler = new AwsLambdaErrorHandler({ logger: mockLogger })
+    handler = new AwsLambdaErrorHandler({ blueprint: mockBlueprint })
   })
 
-  test('should throw an IntegrationError if logger is not provided', () => {
-    expect(() => new AwsLambdaErrorHandler({ logger: undefined as any })).toThrowError(IntegrationError)
-  })
-
-  test('should handle an error and return a response with correct headers', async () => {
+  test('should handle an error and return a response with correct headers', () => {
     const error = new Error('Something went wrong')
 
-    const response = await handler.handle(error, mockContext)
+    const response = handler.handle(error, mockContext)
 
     expect(mockContext.rawResponseBuilder.add).toHaveBeenCalledWith('statusCode', 500)
     expect(mockLogger.error).toHaveBeenCalledWith('Something went wrong', { error })
-    expect(response).toBe('response')
+    expect(response.build().respond()).toBe('response')
   })
 })

@@ -6,7 +6,7 @@
 
 # Interface: AwsLambdaErrorHandlerOptions
 
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:15](https://github.com/stonemjs/aws-lambda-adapter/blob/dd32cc4c1c231995d4ac18a5ed4fe2bb473349e7/src/AwsLambdaErrorHandler.ts#L15)
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:15](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/AwsLambdaErrorHandler.ts#L15)
 
 AwsLambdaErrorHandler options.
 
@@ -16,4 +16,4 @@ AwsLambdaErrorHandler options.
 
 > **blueprint**: `IBlueprint`
 
-Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:16](https://github.com/stonemjs/aws-lambda-adapter/blob/dd32cc4c1c231995d4ac18a5ed4fe2bb473349e7/src/AwsLambdaErrorHandler.ts#L16)
+Defined in: [aws-lambda-adapter/src/AwsLambdaErrorHandler.ts:16](https://github.com/stonemjs/aws-lambda-adapter/blob/40d2096417dfa656208c25f0f4a9d23bf5291928/src/AwsLambdaErrorHandler.ts#L16)

@@ -1,6 +1,6 @@
 # Stone.js: AWS Lambda Adapters
 
-[![npm](https://img.shields.io/npm/l/@stone-js/aws-lambda-adapter)](https://opensource.org/licenses/Apache-2.0)
+[![npm](https://img.shields.io/npm/l/@stone-js/browser-core)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/@stone-js/aws-lambda-adapter)](https://www.npmjs.com/package/@stone-js/aws-lambda-adapter)
 [![npm](https://img.shields.io/npm/dm/@stone-js/aws-lambda-adapter)](https://www.npmjs.com/package/@stone-js/aws-lambda-adapter)
 ![Maintenance](https://img.shields.io/maintenance/yes/2025)
@@ -12,7 +12,7 @@ Stone.js AWS Lambda Adapters with typings.
 
 ---
 
-Get started with the [documentation](https://stonejs.com/docs/http/aws-lambda-adapter).
+Get started with the [documentation](https://stonejs.com/docs/architecture/adapter.html).
 
 
 ## Contributing
