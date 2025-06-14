@@ -1,7 +1,11 @@
+import { getString } from '@stone-js/env'
 import { AWS_LAMBDA_PLATFORM } from '../constants'
 import { awsLambdaAdapterResolver } from '../resolvers'
-import { AdapterConfig, StoneBlueprint } from '@stone-js/core'
 import { AwsLambdaErrorHandler } from '../AwsLambdaErrorHandler'
+import { AwsLambdaContext, AwsLambdaEvent, RawResponse } from '../declarations'
+import { metaAdapterBlueprintMiddleware } from '../middleware/BlueprintMiddleware'
+import { MetaIncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
+import { AdapterConfig, defaultKernelResolver, IncomingEvent, IncomingEventOptions, isNotEmpty, OutgoingResponse, StoneBlueprint } from '@stone-js/core'
 
 /**
  * Configuration interface for the AWS Lambda Adapter.
@@ -10,7 +14,14 @@ import { AwsLambdaErrorHandler } from '../AwsLambdaErrorHandler'
  * customizable options specific to the AWS Lambda platform. This includes
  * alias, resolver, middleware, hooks, and various adapter state flags.
  */
-export interface AwsLambdaAdapterConfig extends AdapterConfig {}
+export interface AwsLambdaAdapterAdapterConfig extends AdapterConfig<
+AwsLambdaEvent,
+RawResponse,
+AwsLambdaContext,
+IncomingEvent,
+IncomingEventOptions,
+OutgoingResponse
+> {}
 
 /**
  * Blueprint interface for the AWS Lambda Adapter.
@@ -32,17 +43,23 @@ export interface AwsLambdaAdapterBlueprint extends StoneBlueprint {}
  */
 export const awsLambdaAdapterBlueprint: AwsLambdaAdapterBlueprint = {
   stone: {
+    blueprint: {
+      middleware: metaAdapterBlueprintMiddleware
+    },
     adapters: [
       {
-        platform: AWS_LAMBDA_PLATFORM,
-        resolver: awsLambdaAdapterResolver,
-        middleware: [],
-        hooks: {},
-        errorHandlers: {
-          default: AwsLambdaErrorHandler
-        },
         current: false,
-        default: false
+        variant: 'server',
+        platform: AWS_LAMBDA_PLATFORM,
+        middleware: [
+          MetaIncomingEventMiddleware
+        ],
+        resolver: awsLambdaAdapterResolver,
+        eventHandlerResolver: defaultKernelResolver,
+        errorHandlers: {
+          default: { module: AwsLambdaErrorHandler, isClass: true }
+        },
+        default: isNotEmpty(getString('AWS_LAMBDA_FUNCTION_NAME', ''))
       }
     ]
   }

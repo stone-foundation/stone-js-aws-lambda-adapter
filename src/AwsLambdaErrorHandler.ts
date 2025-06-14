@@ -1,12 +1,19 @@
-import { HTTP_INTERNAL_SERVER_ERROR } from '@stone-js/http-core'
+import {
+  ILogger,
+  IBlueprint,
+  LoggerResolver,
+  AdapterErrorContext,
+  IAdapterErrorHandler,
+  defaultLoggerResolver,
+  AdapterEventBuilderType
+} from '@stone-js/core'
 import { AwsLambdaContext, AwsLambdaEvent, RawResponse } from './declarations'
-import { IntegrationError, AdapterErrorContext, IAdapterErrorHandler, ILogger } from '@stone-js/core'
 
 /**
  * AwsLambdaErrorHandler options.
  */
 export interface AwsLambdaErrorHandlerOptions {
-  logger: ILogger
+  blueprint: IBlueprint
 }
 
 /**
@@ -20,12 +27,8 @@ export class AwsLambdaErrorHandler implements IAdapterErrorHandler<AwsLambdaEven
    *
    * @param options - AwsLambdaErrorHandler options.
    */
-  constructor ({ logger }: AwsLambdaErrorHandlerOptions) {
-    if (logger === undefined) {
-      throw new IntegrationError('Logger is required to create an AwsLambdaErrorHandler instance.')
-    }
-
-    this.logger = logger
+  constructor ({ blueprint }: AwsLambdaErrorHandlerOptions) {
+    this.logger = blueprint.get<LoggerResolver>('stone.logger.resolver', defaultLoggerResolver)(blueprint)
   }
 
   /**
@@ -33,15 +36,16 @@ export class AwsLambdaErrorHandler implements IAdapterErrorHandler<AwsLambdaEven
    *
    * @param error - The error to handle.
    * @param context - The context of the adapter.
-   * @returns The raw response.
+   * @returns The raw response builder.
    */
-  public async handle (error: Error, context: AdapterErrorContext<AwsLambdaEvent, RawResponse, AwsLambdaContext>): Promise<RawResponse> {
-    context
-      .rawResponseBuilder
-      .add('statusCode', HTTP_INTERNAL_SERVER_ERROR)
-
+  public handle (
+    error: Error,
+    context: AdapterErrorContext<AwsLambdaEvent, RawResponse, AwsLambdaContext>
+  ): AdapterEventBuilderType<RawResponse> {
     this.logger.error(error.message, { error })
 
-    return await context.rawResponseBuilder.build().respond()
+    return context
+      .rawResponseBuilder
+      .add('statusCode', 500)
   }
 }
