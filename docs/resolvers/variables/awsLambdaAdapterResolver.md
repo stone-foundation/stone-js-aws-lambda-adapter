@@ -10,6 +10,8 @@ Creates and configures an `AWSLambdaAdapter` for handling generic events in AWS 
 
 ## Param
 
+**blueprint**
+
 The `IBlueprint` providing configuration and dependencies.
 
 ## Returns
