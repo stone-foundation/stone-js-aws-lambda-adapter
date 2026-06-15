@@ -5,6 +5,13 @@ All notable changes to the "Stone.js AWS Lambda Adapter" extension will be docum
 ## Unreleased
 
 
+## [0.1.1](https://github.com/stone-foundation/stone-js-aws-lambda-adapter/compare/v0.1.0...v0.1.1) (2026-06-15)
+
+
+### Miscellaneous Chores
+
+* update Stone.js core deps ([#50](https://github.com/stone-foundation/stone-js-aws-lambda-adapter/issues/50)) ([94c50d8](https://github.com/stone-foundation/stone-js-aws-lambda-adapter/commit/94c50d836ad9f679aea270aed9ff76834c891b05))
+
 ## [0.1.0](https://github.com/stone-foundation/stone-js-aws-lambda-adapter/compare/v0.0.22...v0.1.0) (2025-06-14)
 
 
