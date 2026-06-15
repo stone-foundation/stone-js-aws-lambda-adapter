@@ -11,29 +11,43 @@ abstracts the event handling process for Stone.js developers.
 
 ## Template
 
+**AwsLambdaEvent**
+
 The type of the raw event received from AWS Lambda.
 
 ## Template
+
+**RawResponse**
 
 The type of the response to send back to AWS Lambda.
 
 ## Template
 
+**AwsLambdaContext**
+
 The AWS Lambda execution context type.
 
 ## Template
+
+**IncomingEvent**
 
 The type of the processed incoming event.
 
 ## Template
 
+**IncomingEventOptions**
+
 Options used to create an incoming event.
 
 ## Template
 
+**OutgoingResponse**
+
 The type of the outgoing response after processing.
 
 ## Template
+
+**AwsLambdaAdapterContext**
 
 Context type specific to the adapter.
 

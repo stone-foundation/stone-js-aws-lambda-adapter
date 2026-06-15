@@ -1,7 +1,7 @@
 # Function: AwsLambda()
 
 ```ts
-function AwsLambda<T>(options): ClassDecorator;
+function AwsLambda<T>(options?): ClassDecorator;
 ```
 
 A Stone.js decorator that integrates the AWS Lambda Adapter with a class.
@@ -20,7 +20,7 @@ The type of the class being decorated. Defaults to `ClassType`.
 
 ## Parameters
 
-### options
+### options?
 
 [`AwsLambdaOptions`](../interfaces/AwsLambdaOptions.md) = `{}`
 
